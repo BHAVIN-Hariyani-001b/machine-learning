@@ -1,0 +1,13 @@
+[project]
+name = "ml-fastapi"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi[standard]>=0.142.2",
+    "pandas>=3.0.6",
+    "pydantic>=2.13.5",
+    "scikit-learn>=1.9.1",
+    "streamlit>=1.65.0",
+]
