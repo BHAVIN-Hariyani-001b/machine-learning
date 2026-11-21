@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Card Fraud Detection</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="topbar">
+        <div class="brand">FraudGuard <span>ML</span></div>
+        <div class="status"><span class="dot"></span> XGBoost Model</div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <p class="eyebrow">MACHINE LEARNING PROJECT</p>
+            <h1>Credit Card Fraud Detection</h1>
+            <p>Analyze transaction features and estimate potential fraud risk.</p>
+        </section>
+
+        <section class="panel">
+            <div class="panel-heading">
+                <div>
+                    <h2>Transaction analysis</h2>
+                    <p>Enter the features from a compatible transaction record.</p>
+                </div>
+                <span class="badge">Binary Classification</span>
+            </div>
+
+            <form id="transaction-form">
+                <div id="feature-grid" class="feature-grid">
+                    {% for feature in features %}
+                    <label class="field">
+                        <span>{{ feature }}</span>
+                        <input
+                            type="number"
+                            name="{{ feature }}"
+                            step="any"
+                            required
+                            placeholder="Enter {{ feature }}"
+                        >
+                    </label>
+                    {% endfor %}
+                </div>
+
+                <div class="actions">
+                    <button type="reset" class="secondary">Clear form</button>
+                    <button type="submit" id="submit-btn">
+                        Analyze transaction
+                    </button>
+                </div>
+            </form>
+
+            <div id="result" class="result hidden" aria-live="polite"></div>
+        </section>
+
+        <p class="disclaimer">
+            Educational prototype. Predictions are estimates, not proof of fraud.
+            Do not enter real card numbers or sensitive cardholder information.
+        </p>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
